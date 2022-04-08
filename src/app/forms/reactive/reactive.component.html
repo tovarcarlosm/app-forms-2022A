@@ -1,0 +1,126 @@
+<h3>Formularios Reactivos (Reactive)</h3>
+<form autocomplete="off" [formGroup]="formReactive" (ngSubmit)="guardar()">
+  <div class="row mt-5">
+    <div class="col-8">
+      <div class="mb-3 row">
+        <label for="nombre" class="col-sm-2 col-form-label">Producto</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="nombreNoValido"
+                 id="nombre"
+                 name="nombre"
+                 formControlName="nombre"
+          >
+          <small *ngIf="nombreNoValido" class="form-text text-danger">
+            Ingrese mínimo 3 caracteres y deben ser solo letras
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="codigo" class="col-sm-2 col-form-label">Código</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="codigoNoValido"
+                 id="codigo"
+                 name="codigo"
+                 formControlName="codigo"
+          >
+          <small *ngIf="codigoNoValido" class="form-text text-danger">
+            Ingrese mínimo 5 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="categoria" class="col-sm-2 col-form-label">Categoria</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="categoriaNoValida"
+                 id="categoria"
+                 name="categoria"
+                 formControlName="categoria"
+          >
+          <small *ngIf="categoriaNoValida" class="form-text text-danger">
+            Ingrese mínimo 5 caracteres y deben ser solo letras
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Descuento</label>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input type="radio"
+                   class="form-check-input"
+                   [class.is-invalid]="descuentoNoValido"
+                   name="descuento"
+                   value="si"
+                   formControlName="descuento"
+            >
+            <label class="form-check-label">SI</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input type="radio"
+                   class="form-check-input"
+                   [class.is-invalid]="descuentoNoValido"
+                   name="descuento"
+                   value="no"
+                   formControlName="descuento"
+            >
+            <label class="form-check-label">NO</label>
+          </div>
+          <small *ngIf="descuentoNoValido" class="form-text text-danger">
+            Debe seleccionar SI o NO
+          </small>
+        </div>
+      </div>
+
+      <div class="form-group row" formGroupName="precio">
+        <label class="col-2 col-form-label">Precio</label>
+        <div class="col-10">
+          <div class="col">
+            <input type="text"
+                   class="form-control mb-3"
+                   [class.is-invalid]="precioCompraNoValido"
+                   name="compra"
+                   id="compra"
+                   placeholder="Compra"
+                   formControlName="compra"
+            >
+            <small *ngIf="precioCompraNoValido" class="form-text text-danger mb-1">
+              El campo es requerido
+            </small>
+          </div>
+          <div class="col">
+            <input type="text"
+                   class="form-control mb-1"
+                   [class.is-invalid]="precioVentaNoValido"
+                   name="venta"
+                   id="venta"
+                   placeholder="Venta"
+                   formControlName="venta"
+            >
+            <small *ngIf="precioVentaNoValido" class="form-text text-danger mb-5">
+              El campo es requerido
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 row">
+        <div class="d-grid gap-2">
+          <button type="submit"
+                  class="btn btn-info"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

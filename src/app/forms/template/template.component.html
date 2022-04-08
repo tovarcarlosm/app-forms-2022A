@@ -1,0 +1,127 @@
+<h3>Formularios de Plantilla (Template)</h3>
+<form autocomplete="off" (ngSubmit)="guardar( formTemplate )" #formTemplate="ngForm">
+  <div class="row mt-5">
+    <div class="col-8">
+      <div class="mb-3 row">
+        <label for="nombre" class="col-sm-2 col-form-label">Producto</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="nombre.invalid && nombre.touched"
+                 [class.is-valid]="nombre.valid"
+                 id="nombre"
+                 name="nombre"
+                 [ngModel]="producto.nombre"
+                 required
+                 minlength="3"
+                 #nombre="ngModel"
+                 pattern="^[a-zA-Z]+$"
+          >
+          <small *ngIf="nombre.invalid && nombre.touched" class="form-text text-danger">
+            Ingrese mínimo 3 caracteres y deben ser solo letras
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="codigo" class="col-sm-2 col-form-label">Código</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="codigo.invalid && codigo.touched"
+                 id="codigo"
+                 name="codigo"
+                 [ngModel]="producto.codigo"
+                 required
+                 minlength="5"
+                 #codigo="ngModel"
+          >
+          <small *ngIf="codigo.invalid && codigo.touched" class="form-text text-danger">
+            Ingrese mínimo 5 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="categoria" class="col-sm-2 col-form-label">Categoria</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="categoria.invalid && categoria.touched"
+                 id="categoria"
+                 name="categoria"
+                 [ngModel]="producto.categoria"
+                 required
+                 minlength="5"
+                 #categoria="ngModel"
+                 pattern="^[a-zA-Z]+$"
+          >
+          <small *ngIf="categoria.invalid && categoria.touched" class="form-text text-danger">
+            Ingrese mínimo 5 caracteres y deben ser solo letras
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+        <div class="col-sm-10">
+          <input type="text"
+                 class="form-control"
+                 [class.is-invalid]="precio.invalid && precio.touched"
+                 id="precio"
+                 name="precio"
+                 [ngModel]="producto.precio"
+                 required
+                 minlength="2"
+                 #precio="ngModel"
+          >
+          <small *ngIf="precio.invalid && precio.touched" class="form-text text-danger">
+            Ingrese mínimo 2 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="descuento" class="col-sm-2 col-form-label">Descuento</label>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input type="radio"
+                   class="form-check-input"
+                   [class.is-invalid]="descuento.invalid && descuento.touched"
+                   name="descuento"
+                   value="si"
+                   [ngModel]="producto.descuento"
+                   #descuento="ngModel"
+            >
+            <label class="form-check-label">SI</label>
+          </div>
+
+          <div class="form-check form-check-inline">
+            <input type="radio"
+                   class="form-check-input"
+                   [class.is-invalid]="descuento.invalid && descuento.touched"
+                   name="descuento"
+                   value="no"
+                   [ngModel]="producto.descuento"
+                   #descuento="ngModel"
+            >
+            <label class="form-check-label">NO</label>
+          </div>
+          <small *ngIf="precio.invalid && precio.touched" class="form-text text-danger">
+            Ingrese mínimo 2 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <div class="d-grid gap-2">
+          <button type="submit"
+                 class="btn btn-warning"
+          >
+            Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
